@@ -23,7 +23,7 @@ Route::middleware(['admin'])->group(function () {
 	      $users[] = Auth::guard('admin')->user();
 	      //dd($users);
 	      return view('admin.home');
-	  })->name('admin-home');
+	  })->name('admin.home');
 
   });
 });
