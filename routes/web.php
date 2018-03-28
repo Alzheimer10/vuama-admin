@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Auth::routes();
+Route::post('/user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+Route::get('/home', 'HomeController@index');
+
+
+require base_path('routes/admin.php');

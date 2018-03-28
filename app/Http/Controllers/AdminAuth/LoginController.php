@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\AdminAuth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Hesto\MultiAuth\Traits\LogsoutGuard;
+
 use Illuminate\Http\Request;
-use Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -19,14 +22,17 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, LogsoutGuard {
+        LogsoutGuard::logout insteadof AuthenticatesUsers;
+    }
 
     /**
-     * Where to redirect users after login.
+     * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    public $redirectTo = 'admin';
+    public $redirectAfterLogout = '/admin/login';
 
     /**
      * Create a new controller instance.
@@ -35,17 +41,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => ['logout','userLogout']]);
-    }
-
-    /**
-     * Get the guard to be used during authentication.
-     *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
-     */
-    protected function guard()
-    {
-        return Auth::guard('web');
+        $this->middleware('guest:admin', ['except' => 'logout']);
     }
 
     public function login(Request $request)
@@ -59,12 +55,32 @@ class LoginController extends Controller
             'password' => $request->password
         ];
         // Attempt to log the user in
-        if (Auth::guard('web')->attempt($credential, $request->member)){
+        if (Auth::guard('admin')->attempt($credential, $request->member)){
             // If login succesful, then redirect to their intended location
-            return redirect('/');
+            return redirect('admin');
         }
         // If Unsuccessful, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('email', 'remember'));
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return view('admin.auth.login');
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('admin');
     }
 
     /**
@@ -73,9 +89,10 @@ class LoginController extends Controller
      * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function userLogout(Request $request)
+    public function logout()
     {
-        $this->guard('web')->logout();
-        return redirect('/login');
+        $this->guard()->logout();
+        return redirect('admin/login');
     }
+
 }
