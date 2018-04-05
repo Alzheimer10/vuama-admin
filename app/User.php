@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Address;
+use App\Models\Bank_account;
+use App\Models\Project;
 
 class User extends Authenticatable
 {
@@ -15,7 +18,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email',
+        'password',
+        'ci',
+        'name',
+        'lastname',
+        'phone',
+        'additional_phone',
+        'description',
+        'dbirth',
+        'avater',
+        'status',
+        'address_id',
+        'gender'
     ];
 
     /**
@@ -26,4 +41,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function fullname()
+    {
+        return $this->name.' '. $this->lastname;
+    }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
+
+    public function bank_accounts()
+    {
+        return $this->hasMany(bank_account::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

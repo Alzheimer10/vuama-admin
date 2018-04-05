@@ -5,30 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name', 'Laravel Multi Auth Guard') }}</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
-    <link rel="stylesheet" href="{{ asset('assets-admin/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{ asset('assets-admin/vendor/font-awesome/css/font-awesome.min.css') }}">
-    <!-- Fontastic Custom icon font-->
-    <link rel="stylesheet" href="{{ asset('assets-admin/css/fontastic.css') }}">
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <!-- jQuery Circle-->
-    <link rel="stylesheet" href="{{ asset('assets-admin/css/grasp_mobile_progress_circle-1.0.0.min.css') }}">
-    <!-- Custom Scrollbar-->
-    <link rel="stylesheet" href="{{ asset('assets-admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lib.css') }}">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{ asset('assets-admin/css/style.blue.css') }}" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="{{ asset('assets-admin/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/style.blue.css') }}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{ asset('assets-admin/favicon.png') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script>
-        window.Laravel = <?php echo json_encode([ 'csrfToken' => csrf_token(), ]); ?>
-    </script>
+    <script> window.Laravel = { csrfToken: '{{ csrf_token() }}' } </script>
 
     @yield('styles')
     <!-- Styles -->
@@ -39,32 +27,30 @@
     </style>
 </head>
 <body>
-    <!-- Side Navbar -->
-    @include('admin.layout.components.side-navbar')
-    
-    <div class="page">
-      <!-- navbar-->
-        @include('admin.layout.components.header')
-      <!-- Counts Section -->
-      <section class="dashboard-counts section-padding">
-        @yield('content')
-      </section>
+    <div id="app">
+        <!-- Side Navbar -->
+        @include('admin.layout.components.side-navbar')
+        
+        <div class="page">
+          <!-- navbar-->
+            @include('admin.layout.components.header')
+          <!-- Counts Section -->
+          <section class="dashboard-counts section-padding">
+            @yield('content')
+          </section>
 
-    @include('admin.layout.components.footer')
+        @include('admin.layout.components.footer')
 
+        </div>
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('assets-admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets-admin/vendor/popper.js/umd/popper.min.js') }}"> </script>
-    <script src="{{ asset('assets-admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets-admin/js/grasp_mobile_progress_circle-1.0.0.min.js') }}"></script>
-    <script src="{{ asset('assets-admin/vendor/jquery.cookie/jquery.cookie.js') }}"> </script>
-    <script src="{{ asset('assets-admin/vendor/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('assets-admin/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('assets-admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('js/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery/jquery-migrate.min.js') }}"></script>
+    <script src="{{ asset('js/lib.js') }}"></script>
     <!-- Main File-->
-    <script src="{{ asset('assets-admin/js/front.js') }}"></script>
+    <script src="{{ asset('js/admin/app.js') }}"></script>
+    <script src="{{ asset('js/admin/front.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

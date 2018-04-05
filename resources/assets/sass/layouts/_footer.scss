@@ -1,0 +1,48 @@
+  /*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+    footer #footer-bottom {
+      background-color: white;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 15px;
+      padding-top: 13px;
+    }
+
+    footer ul.social {
+      list-style: none;
+      float: right;
+    }
+
+    footer ul.social li {
+      display: inline;
+      padding: 0;
+      margin: 0 5px;
+    }
+
+    footer ul.social li a {
+      color: #533c43;
+      display: inline-block;
+    }
+    footer ul.social li a:hover {
+      color: #f15632;
+    }
+
+  /* Frequently Asked Questions Section
+  --------------------------------*/
+    #section_link{
+      background: #533c43;
+      padding: 60px 0 30px 0;
+      color: white;
+    }
+    #section_link ul{
+      list-style: none;
+      -webkit-padding-start: 0px;
+    }
+    #section_link ul li{
+      padding: 0;
+      margin: 0 5px;
+    }
+    #section_link ul li a{
+      color: white;
+    }

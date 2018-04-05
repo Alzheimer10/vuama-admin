@@ -1,0 +1,48 @@
+/*.el-tabs__item:hover{
+}*/
+.el-tabs__item{
+	&.is-active,
+	&:hover{
+		color: $color-2
+	}
+}
+.el-button--primary{
+    background-color: $color-2;
+    border-color: $color-2;
+	&:focus,
+	&:hover {
+	    background: $color-2;
+	    border-color: $color-2;
+	}
+}
+.el-button:focus,
+.el-button:hover {
+    color: #FFF;
+    border-color: $color-2-hover;
+    background-color: $color-2;
+}
+.el-tabs__active-bar{
+	background-color: $color-2;
+	display: none;
+}
+.el-form--label-top .el-form-item__label{
+	margin-bottom: 0;
+    padding-bottom: 0;
+}
+.el-tabs__item{
+	font-size: 1rem;
+	&.is-top{
+		&.is-active{
+			position: relative;
+			&::before{
+				content: "";
+				position: absolute;
+				left: 0;
+				height: 2px;
+				background-color: $color-2;
+				bottom: 0;
+				width: 100%;
+			}
+		}
+	}
+}

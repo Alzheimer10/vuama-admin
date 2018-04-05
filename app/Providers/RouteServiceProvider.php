@@ -15,6 +15,10 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
+    protected $namespacea_admin = 'App\Http\Controllers\WebAdmin';
+    protected $namespacea_admin_api = 'App\Http\Controllers\Api\WebAdmin';
+    protected $namespacea_app = 'App\Http\Controllers\WebApp';
+    protected $namespacea_app_api = 'App\Http\Controllers\Api\WebApp';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -39,9 +43,37 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        // $this->mapAdminRoutes();
+        $this->mapWebAppRoutes();
 
-        //
+        $this->mapWebAdminRoutes();
+
+    }
+
+
+
+    /**
+     * Define the "webapp" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebAppRoutes()
+    {
+
+        Route::middleware('web','auth')
+             ->namespace($this->namespacea_app)
+             ->group(base_path('routes/appWeb/webApp.php'));
+
+        Route::middleware('api')
+             ->prefix('api/app')
+             ->namespace($this->namespacea_app_api)
+             ->group(base_path('routes/appWeb/apiApp.php'));
+
+
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/appWeb/authApp.php'));
     }
 
     /**
@@ -51,15 +83,23 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapAdminRoutes()
+    protected function mapWebAdminRoutes()
     {
-        // Route::group([
-        //     'middleware' => ['admin', 'auth:admin'],
-        //     'as' => 'admin.',
-        //     'namespace' => $this->namespace,
-        // ], function ($router) {
-        //     require base_path('routes/admin.php');
-        // });
+
+        Route::middleware('web','admin')
+             ->namespace($this->namespacea_admin)
+             ->prefix('admin')
+             ->group(base_path('routes/adminWeb/webAdmin.php'));
+
+        Route::middleware('web')
+             ->namespace($this->namespace.'\Auth\Admin')
+             ->prefix('admin')
+             ->group(base_path('routes/adminWeb/authAdmin.php'));
+
+        Route::middleware('api')
+             ->prefix('api/admin')
+             ->namespace($this->namespacea_admin_api)
+             ->group(base_path('routes/adminWeb/apiAdmin.php'));
     }
 
     /**

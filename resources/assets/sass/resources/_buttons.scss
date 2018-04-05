@@ -1,0 +1,16 @@
+  .btn-get-started {
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: .8rem;
+    border-radius: 0px;
+    transition: 0.5s;
+    margin: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    &:hover {
+      color: #f5825d;
+      background: #fff;
+    }
+  }

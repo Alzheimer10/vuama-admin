@@ -150,6 +150,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Suomato\VueComponentGenerator\VueComponentGeneratorServiceProvider::class,
 
         /*
          * Application Service Providers...

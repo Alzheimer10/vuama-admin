@@ -1,0 +1,85 @@
+$line-count-h1: 2;
+$line-count-h2: 2;
+$line-count-h3: 3;
+$line-count-h4: 3;
+$line-count-h5: 4;
+$line-count-h6: 4;
+
+$line-count-description: 4;
+$font-size-description: 1.18rem;
+.ellipsis{
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+}
+
+.h1,h1{
+  &.ellipsis{
+    line-height:  1;
+    max-height:   ( $font-size-h1 - .05) * $line-count-h1;
+    min-height:   $font-size-h1;
+    @media screen and (max-width: $screen-md){ min-height: ( $font-size-h1 - .05) * 3; }
+    @media screen and (max-width: $screen-sm){ min-height: ( $font-size-h1 - .05) * 4; }
+  }
+}
+
+
+.h2,h2{
+  &.ellipsis{
+    line-height: 1;
+    max-height:   ( $font-size-h2 - .05) * $line-count-h2;
+    min-height:   $font-size-h2;
+    @media screen and (max-width: $screen-md){ min-height: ( $font-size-h2 - .05) * 3; }
+    @media screen and (max-width: $screen-sm){ min-height: ( $font-size-h2 - .05) * 4; }
+  }
+}
+
+.h3,h3{
+  &.ellipsis{
+    line-height: 1;
+    max-height:   ( $font-size-h3 - .05) * $line-count-h3;
+    min-height:   $font-size-h3;
+    @media screen and (max-width: $screen-md){ min-height: ( $font-size-h3 - .05) * 3; }
+    @media screen and (max-width: $screen-sm){ min-height: ( $font-size-h3 - .05) * 4; }
+  }
+}
+
+.h4,h4{
+  &.ellipsis{
+    line-height: 1;
+    max-height:   ( $font-size-h4 - .05) * $line-count-h4;
+    min-height:   $font-size-h4;
+    @media screen and (max-width: $screen-md){ min-height: ( $font-size-h4 - .05) * 3; }
+    @media screen and (max-width: $screen-sm){ min-height: ( $font-size-h4 - .05) * 4; }
+  }
+}
+
+.h5,h5{
+  &.ellipsis{
+    line-height: 1;
+    max-height:   ( $font-size-h5 - .05) * $line-count-h5;
+    min-height:   $font-size-h5;
+    @media screen and (max-width: $screen-md){ min-height: ( $font-size-h5 - .05) * 3; }
+    @media screen and (max-width: $screen-sm){ min-height: ( $font-size-h5 - .05) * 4; }
+  }
+}
+
+.h6,h6{
+  &.ellipsis{
+    line-height: 1;
+    max-height:   ( $font-size-h6 - .05) * $line-count-h6;
+    min-height:   $font-size-h6;
+    @media screen and (max-width: $screen-md){ min-height: ( $font-size-h6 - .05) * 3; }
+    @media screen and (max-width: $screen-sm){ min-height: ( $font-size-h6 - .05) * 4; }
+  }
+}
+
+p{
+  &.ellipsis-description{
+    line-height:  1rem;
+    max-height:   ( $font-size-description) * $line-count-description;
+    min-height:   $font-size-description;
+    @media screen and (max-width: $screen-md){ min-height: ( $font-size-description) * 3; }
+    @media screen and (max-width: $screen-sm){ min-height: ( $font-size-description) * 4; }
+  }
+}

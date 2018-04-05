@@ -54,6 +54,7 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:6'
         ]);
+
         $credential = [
             'email' => $request->email,
             'password' => $request->password
@@ -64,7 +65,9 @@ class LoginController extends Controller
             return redirect('/');
         }
         // If Unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('email', 'remember'));
+        return redirect()->back()->withInput($request->only('email', 'remember', 'password'))->withErrors([
+                $this->username() => \Lang::get('auth.failed'),
+            ]);
     }
 
     /**

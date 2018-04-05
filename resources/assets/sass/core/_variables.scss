@@ -1,0 +1,81 @@
+/*!
+ * variables core.css (anselmi404.scss)
+ */
+
+/* path */
+$image-path:			'../img/';
+$font-path:				'../fonts/';
+
+/* fonts */
+$font-primary:	"Open Sans", sans-serif;
+$font-secundary:  "Montserrat", sans-serif;
+$font-size-body:		15px;
+
+/* color-core */
+$color-morado:			#533c43;
+$color-naranja:			#F15632;
+
+$color-1: 				#f79134;
+$color-1-hover:			#FF5722;
+$color-2:				$color-naranja;
+$color-2-hover:			#712f21;
+$color-3:				#231a21;
+$color-3-hover:			#4b3f4a;
+$color-4:				#f96332;
+$color-5:				#364150;
+
+$color-primary: 		#F7F7F7;
+$color-primary-hover: 	#652261;
+$color-secondary:		#333; 
+$color-secondary-hover: #4575a4; 
+$color-tertiary:		#DAD5D2;
+$color-tertiary-hover:	#c9c7c5;;
+$bg-body: 				white;
+$bg-section:			#eff5f5;
+
+
+$font-size-h1:	 		2rem;
+$font-size-h2:	 		1.8rem;
+$font-size-h3:	 		1.75rem;
+$font-size-h4:	 		1.5rem;
+$font-size-h5:	 		1.25rem;
+$font-size-h6:	 		1rem;
+
+/* color-font */
+$color-font-primary:	#333;
+$color-font-a:	$color-3-hover;
+$color-font-secondary: 	#cfcccc;
+/* color-font */
+$color-font-primary:	#333;
+$color-font-secondary: 	#cfcccc;
+
+/* scrollbar */
+$scrollbar-bg:				$color-secondary;
+$scrollbar-btn-bg:			$color-secondary;
+$scrollbar-border-radius:	0px;
+$scrollbar-width:			15px;
+
+/* highlight */
+$bg-highlight: 			$color-tertiary;
+$color-highlight: 		$color-primary;
+
+$screen-xs:        		480px !default;
+$screen-xs-min:    		$screen-xs !default;
+$screen-phone:     		$screen-xs-min !default;
+
+
+$screen-sm:        		768px !default;
+$screen-sm-min:    		$screen-sm !default;
+$screen-tablet:    		$screen-sm-min !default;
+
+$screen-md:        		992px !default;
+$screen-md-min:    		$screen-md !default;
+$screen-desktop:   		$screen-md-min !default;
+
+$screen-lg:        		1200px !default;
+$screen-lg-min:    		$screen-lg !default;
+$screen-lg-desktop:		$screen-lg-min !default;
+
+$screen-xs-max:    		($screen-sm-min - 1) !default;
+$screen-sm-max:    		($screen-md-min - 1) !default;
+$screen-md-max:    		($screen-lg-min - 1) !default;
